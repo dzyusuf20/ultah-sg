@@ -148,6 +148,9 @@
         .tarot-card-back {
             background-color: #FF6347;
             transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .tarot-card-front {
@@ -203,7 +206,7 @@
                     Buka Kartu 1
                 </div>
                 <div class="tarot-card-back">
-                    Kartu 1
+                    <p id="card-1-text" style="display: none;">Kamu sangat berharga! Jangan ragu untuk kembali!</p>
                 </div>
             </div>
         </div>
@@ -213,7 +216,7 @@
                     Buka Kartu 2
                 </div>
                 <div class="tarot-card-back">
-                    Kartu 2
+                    <p id="card-2-text" style="display: none;">Cinta sejati akan kembali, percayalah!</p>
                 </div>
             </div>
         </div>
@@ -223,7 +226,7 @@
                     Buka Kartu 3
                 </div>
                 <div class="tarot-card-back">
-                    Kartu 3
+                    <p id="card-3-text" style="display: none;">Kamu layak bahagia! Kembali dan mulailah kisah baru!</p>
                 </div>
             </div>
         </div>
@@ -233,7 +236,7 @@
                     Buka Kartu 4
                 </div>
                 <div class="tarot-card-back">
-                    Kartu 4
+                    <p id="card-4-text" style="display: none;">Jangan takut untuk membuka hati! Cinta akan menemui jalan!</p>
                 </div>
             </div>
         </div>
@@ -241,22 +244,22 @@
 
     <div class="result" id="result"></div>
 
-    <!-- Script untuk musik dan game -->
     <script>
-        // Memutar musik saat tombol diklik
+        // Fungsi untuk memutar musik ketika tombol diklik
         function playMusic() {
-            var audio = document.getElementById('birthday-music');
-            audio.play();
+            document.getElementById('birthday-music').play();
         }
 
-        // Fungsi untuk menampilkan kartu tarot dan mengganti gambar latar belakangnya
+        // Fungsi untuk flip kartu dan menampilkan isi kartu
         function revealCard(card, message, bgImage, cardName) {
-            card.querySelector('.tarot-card-inner').classList.toggle('flip'); // Menambahkan efek flip pada kartu
-            var result = document.getElementById('result');
+            card.classList.add('flip');
+            const result = document.getElementById('result');
+            const cardText = card.querySelector('.tarot-card-back p');
+            cardText.style.display = 'block'; // Tampilkan isi kartu
             result.textContent = message;
-            card.style.backgroundImage = bgImage;  // Mengganti gambar kartu saat di klik
-            card.querySelector('.tarot-card-front').textContent = ''; // Menghapus teks Buka Kartu
-            card.querySelector('.tarot-card-back').textContent = cardName; // Menampilkan nama kartu
+            card.style.backgroundImage = bgImage; // Mengganti gambar kartu
+            card.querySelector('.tarot-card-front').textContent = ''; // Hapus teks 'Buka Kartu'
+            card.querySelector('.tarot-card-back').textContent = cardName; // Tampilkan nama kartu
         }
     </script>
 
