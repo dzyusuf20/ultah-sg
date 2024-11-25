@@ -3,4 +3,32 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  
+  #puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    background: #f9f9f9;
+    border: 2px solid #ccc;
+    padding: 5px;
+  }
+  
+  .puzzle-tile {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff6f61, #ff9966);
+    cursor: pointer;
+  }
+  
+  .puzzle-tile.empty {
+    background: transparent;
+    cursor: default;
+  }
+  
 }
