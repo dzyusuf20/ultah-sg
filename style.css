@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
@@ -13,75 +12,46 @@ body {
 }
 
 /* Hero Section */
-.hero-section {
+.hero {
   background: url('path_to_your_image.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
-  position: relative;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  position: relative;
+  text-align: center;
 }
 
-.hero-section h1 {
-  font-size: 4rem;
-  font-weight: 700;
+.hero h1, .hero h2, .hero p {
   animation: fadeIn 2s ease-out;
 }
 
-.hero-section h2 {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-top: 20px;
-  animation: fadeIn 3s ease-out;
-}
-
-.hero-section p {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-top: 20px;
-  animation: fadeIn 4s ease-out;
-}
-
-.hero-section .overlay {
+.hero .overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #fff;
+  padding: 20px;
 }
 
-/* Parallax Effect */
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-/* Navigation Styling */
-.navbar {
-  background-color: #222;
-  padding: 15px;
-}
-
-.navbar a {
-  color: #fff !important;
-}
-
-/* Tarot Section */
+/* Kartu Tarot Styling */
 .tarot-card {
   background-color: #f4a261;
   color: white;
   padding: 20px;
-  margin: 15px;
   font-size: 1.5rem;
   border-radius: 10px;
   cursor: pointer;
+  margin: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -89,24 +59,19 @@ body {
   transform: scale(1.1);
 }
 
-/* Footer Styling */
+/* Footer */
 footer {
   background-color: #222;
   padding: 20px;
   color: #bbb;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-section h1 {
-      font-size: 3rem;
-  }
+/* Parallax Scroll */
+@keyframes parallaxEffect {
+  0% { background-position: center 0; }
+  100% { background-position: center 100px; }
+}
 
-  .hero-section h2 {
-      font-size: 2.5rem;
-  }
-  
-  .tarot-card {
-      font-size: 1.2rem;
-  }
+#hero {
+  animation: parallaxEffect 5s infinite linear;
 }
