@@ -1,24 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday!</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            /* The image used */
+            background-image: url('https://source.unsplash.com/random/1920x1080');
+            /* Parallax effect */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 3em;
+        }
+
+        .content {
+            padding: 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ff6347;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .footer {
+            background-color: #ff6347;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1 id="title">🎉 Happy Birthday 🎂</h1>
-      <p id="message">Dear [Name],</p>
-      <p>Wishing you a day filled with love, laughter, and unforgettable memories!</p>
-      <button id="surpriseBtn">Click for Surprise 🎁</button>
-      <div id="surprise" class="hidden">
-        <p>🎶 Happy Birthday to You 🎶</p>
-        <img src="https://source.unsplash.com/300x200/?cake" alt="Birthday Cake">
-      </div>
+
+    <!-- Parallax Section -->
+    <div class="parallax">
+        <div>
+            <h1>Selamat Ulang Tahun!</h1>
+            <p>Semoga sukses selalu dan tetap semangat!</p>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h1>Tentang Kami</h1>
+        <p>Ini adalah aplikasi yang digunakan untuk mengucapkan selamat ulang tahun kepada orang yang spesial!</p>
+        <p>Dengan tampilan menarik dan efek parallax untuk memberikan kesan yang lebih menarik.</p>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 - Created with ❤️. <a href="https://github.com/dzyusuf20" target="_blank">GitHub</a></p>
+    </div>
+
 </body>
 </html>
