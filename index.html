@@ -122,6 +122,7 @@
             font-weight: bold;
             background-size: cover;
             background-position: center;
+            text-align: center;
         }
 
         .tarot-card:hover {
@@ -148,3 +149,46 @@
         <span class="heart">❤️</span>
         <button class="button" onclick="playMusic();">Salam Hangat</button>
     </div>
+
+    <!-- Kartu Tarot -->
+    <div class="tarot-container">
+        <div class="tarot-card" onclick="revealCard('Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(\'https://www.example.com/card-image1.jpg\')')">Kartu 1</div>
+        <div class="tarot-card" onclick="revealCard('Cinta sejati akan kembali, percayalah!', 'url(\'https://www.example.com/card-image2.jpg\')')">Kartu 2</div>
+        <div class="tarot-card" onclick="revealCard('Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(\'https://www.example.com/card-image3.jpg\')")">Kartu 3</div>
+        <div class="tarot-card" onclick="revealCard('Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(\'https://www.example.com/card-image4.jpg\')")">Kartu 4</div>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <!-- Script untuk musik dan game -->
+    <script>
+        // Memuat video YouTube
+        function onYouTubeIframeAPIReady() {
+            new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: '90w2RegGf9w', // ID video YouTube
+                playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': '90w2RegGf9w' }
+            });
+        }
+
+        // Fungsi untuk memulai musik
+        function playMusic() {
+            var player = new YT.Player('youtube-player');
+            player.playVideo();
+        }
+
+        // Fungsi untuk menampilkan kartu tarot dan mengganti gambar latar belakangnya
+        function revealCard(message, bgImage) {
+            var result = document.getElementById('result');
+            result.textContent = message;
+            var card = event.target;
+            card.style.backgroundImage = bgImage;  // Mengganti gambar kartu saat di klik
+        }
+    </script>
+
+    <!-- Menambahkan YouTube API untuk kontrol musik -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
