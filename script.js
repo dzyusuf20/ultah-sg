@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         puzzlePieces.forEach((piece, index) => {
           setTimeout(() => {
             piece.classList.add('show');
-          }, index * 200); // Delay per piece untuk animasi
+          }, index * 150); // Delay per piece untuk animasi
         });
       }
     };
