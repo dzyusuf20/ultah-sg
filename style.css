@@ -1,19 +1,12 @@
-@@ -1,59 +1,101 @@
-/* Basic Reset */
-* {
 body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
     overflow-x: hidden;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     background: #f7f3e9;
     color: #333;
 }
+
 /* Parallax Container */
 .parallax-container {
     height: 100vh;
@@ -21,6 +14,7 @@ body, html {
     position: relative;
     perspective: 2px;
 }
+
 .parallax-layer {
     position: absolute;
     width: 100%;
@@ -30,58 +24,37 @@ body, html {
     background-position: center;
     transform: translateZ(0);
 }
+
 /* Background Layer */
 .layer-bg {
     background-image: url('https://cdn.pixabay.com/photo/2017/12/29/15/47/balloon-3048119_1280.jpg');
     transform: translateZ(-1px) scale(2);
 }
+
 /* Message Layer */
 .layer-message {
     transform: translateZ(1px);
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    color: #333;
-  }
-  
-  /* Card Styling */
-  .container {
     justify-content: center;
     text-align: center;
-  }
-  
-  .card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  h1 {
-    color: #ff6f61;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ff6f61;
     padding: 2rem;
     color: white;
 }
+
 .layer-message h1 {
     font-size: 3rem;
     margin: 0;
     animation: fadeIn 3s ease-in-out;
 }
+
 .layer-message p {
     font-size: 1.2rem;
     margin: 1rem 0;
     animation: fadeIn 5s ease-in-out;
 }
+
 button {
     background-color: #ff5252;
     color: white;
@@ -90,28 +63,16 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #e6554f;
-  }
-  
-  /* Surprise Content */
-  #surprise {
-    margin-top: 20px;
-  }
-  
-  .hidden {
     animation: bounce 2s infinite;
 }
+
 button:hover {
     background-color: #ff3030;
 }
+
 /* Fireworks Animation */
 .fireworks {
     display: none;
-  }
-  
     position: absolute;
     top: 50%;
     left: 50%;
@@ -122,15 +83,18 @@ button:hover {
     background-size: contain;
     animation: scaleUp 1s forwards;
 }
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+
 @keyframes scaleUp {
     from { transform: scale(0); }
     to { transform: scale(1); }
