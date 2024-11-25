@@ -7,11 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
-    .love {
-      position: absolute;
-      font-size: 2rem;
-      color: red;
+    .love-cursor {
+      position: fixed;
       pointer-events: none;
+      font-size: 1.5rem;
+      color: red;
+      opacity: 0.7;
+      z-index: 9999;
+      transition: transform 0.1s ease;
     }
   </style>
 </head>
@@ -61,27 +64,23 @@
   </footer>
 
   <script>
-    // Fungsi untuk membuat dan menganimasikan emot love
-    function createLoveAnimation(x, y) {
-      const love = document.createElement('div');
-      love.className = 'love';
-      love.textContent = '❤️';
-      love.style.left = `${x}px`;
-      love.style.top = `${y}px`;
-      document.body.appendChild(love);
+    // Tambahkan elemen love ke body
+    const loveCursor = document.createElement('div');
+    loveCursor.className = 'love-cursor';
+    loveCursor.textContent = '❤️';
+    document.body.appendChild(loveCursor);
 
-      // Animasi dengan GSAP
-      gsap.to(love, {
-        y: -150,
-        opacity: 0,
-        duration: 2,
-        ease: 'power1.out',
-        onComplete: () => love.remove(),
+    // Perbarui posisi love saat kursor bergerak
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(loveCursor, {
+        x: e.clientX - 10,
+        y: e.clientY - 10,
+        duration: 0.1,
       });
-    }
+    });
 
-    // Tombol Mulai untuk memutar musik dan menampilkan animasi love
-    document.getElementById('mulai-btn').addEventListener('click', function (event) {
+    // Tombol Mulai untuk memutar musik
+    document.getElementById('mulai-btn').addEventListener('click', function () {
       const audio = document.getElementById('birthdayMusic');
       audio.play()
         .then(() => {
@@ -91,12 +90,6 @@
           console.error('Gagal memutar musik:', error);
           alert('Klik tombol lagi jika musik tidak berputar!');
         });
-
-      // Buat animasi love
-      const rect = event.target.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top;
-      createLoveAnimation(x, y);
     });
 
     // Kartu Tarot
