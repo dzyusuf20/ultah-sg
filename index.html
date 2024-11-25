@@ -123,21 +123,15 @@
 
         /* Animasi Pria Memberikan Bunga */
         .gif-container {
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            animation: moveUp 4s ease-out infinite;
-        }
-
-        @keyframes moveUp {
-            0% { bottom: -200px; }
-            50% { bottom: 30px; }
-            100% { bottom: 0; }
+            position: relative;
+            bottom: 20px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
         }
 
         .gif-container img {
-            width: 200px;
+            width: 300px;
             height: auto;
             animation: giveFlower 3s ease-in-out forwards;
         }
