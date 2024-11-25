@@ -72,16 +72,69 @@
         .button:hover {
             background-color: #ff2b2b;
         }
+        /* Animasi petasan */
+        .fireworks {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #ff5b5b, #ff7f50);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: fireworksAnimation 1.5s ease-in-out forwards;
+        }
+        @keyframes fireworksAnimation {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(-50%, -50%);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(2) translate(-50%, -50%);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(4) translate(-50%, -50%);
+            }
+        }
     </style>
 </head>
 <body>
+    <audio id="happyBirthday" autoplay loop>
+        <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="container">
         <h1>Selamat Ulang Tahun, [Nama Teman]!</h1>
         <p>Semoga hari ini penuh kebahagiaan dan cinta. Teruslah menjadi pribadi yang luar biasa!</p>
         <span class="heart">❤️</span>
         <div>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="button" target="_blank">Klik untuk Kejutan!</a>
+            <a href="#" class="button" onclick="showFireworks()">Klik untuk Kejutan!</a>
         </div>
     </div>
+
+    <!-- Efek Petasan -->
+    <script>
+        // Fungsi untuk menampilkan efek petasan saat tombol diklik
+        function showFireworks() {
+            // Membuat elemen petasan baru
+            var fireworks = document.createElement('div');
+            fireworks.classList.add('fireworks');
+            document.body.appendChild(fireworks);
+
+            // Menghapus efek setelah selesai
+            setTimeout(function() {
+                fireworks.remove();
+            }, 1500);
+        }
+
+        // Mengatur agar musik dimulai secara otomatis
+        var audio = document.getElementById('happyBirthday');
+        audio.play();
+    </script>
 </body>
 </html>
