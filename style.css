@@ -11,54 +11,52 @@ body {
 }
 
 .hero {
-  position: relative;
-  background-image: url('your-image.jpg'); /* Ganti dengan gambar */
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  transition: background 1s ease;
+  background-color: #ff7b00;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.content h1, .content h2 {
+  font-weight: 700;
   color: white;
 }
 
-.overlay h1, .overlay p {
-  text-align: center;
-  font-weight: 600;
+.content h1 {
+  font-size: 4rem;
+  animation: fadeIn 2s ease-out;
 }
 
-.overlay h1 {
+.content h2 {
   font-size: 3rem;
+  margin-top: 10px;
+  color: #fff;
+  animation: fadeIn 3s ease-out;
 }
 
-.overlay p {
+.content p {
   font-size: 2rem;
+  margin-top: 20px;
+  font-weight: 600;
+  animation: fadeIn 4s ease-out;
 }
 
 .message {
   padding: 50px 0;
   background-color: #fff;
   text-align: center;
+  color: #333;
 }
 
-.cards {
-  display: flex;
-  justify-content: space-around;
+h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
-.card {
-  width: 150px;
-  height: 200px;
-  background-color: #fff;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.1);
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
