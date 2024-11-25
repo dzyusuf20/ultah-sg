@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #FF8C00, #FFD700); /* Gradient background */
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Gradient background modern */
             overflow-x: hidden;
             display: flex;
             justify-content: center;
@@ -32,6 +32,8 @@
             border-radius: 15px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease-in-out;
+            width: 90%;
+            max-width: 600px;
         }
 
         @keyframes fadeIn {
@@ -40,7 +42,7 @@
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 36px;
             font-weight: 600;
             color: #FF6347;
             margin-bottom: 20px;
@@ -49,9 +51,10 @@
         }
 
         p {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 30px;
             font-weight: 300;
+            color: #fff;
         }
 
         .heart {
@@ -77,6 +80,7 @@
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            width: 200px;
         }
 
         .button:hover {
@@ -84,19 +88,6 @@
             box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.6);
         }
 
-        .text-animate {
-            font-size: 28px;
-            color: white;
-            margin-top: 20px;
-            animation: fadeInText 3s ease-in-out;
-        }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Kartu Tarot */
         .tarot-container {
             display: flex;
             flex-wrap: wrap;
@@ -104,6 +95,7 @@
             gap: 20px;
             margin-top: 40px;
             padding: 20px;
+            width: 100%;
         }
 
         .tarot-card {
@@ -125,6 +117,7 @@
             background-position: center;
             transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
             overflow: hidden;
+            position: relative;
         }
 
         .tarot-card.flip {
@@ -158,7 +151,7 @@
         /* Responsiveness */
         @media (max-width: 768px) {
             h1 {
-                font-size: 36px;
+                font-size: 30px;
             }
 
             .tarot-card {
@@ -170,13 +163,17 @@
                 padding: 15px 30px;
                 font-size: 18px;
             }
+
+            .container {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Musik Background -->
-    <audio id="birthday-music" src="https://cdn.pixabay.com/download/audio/2024/01/17/73275_birthday-card.mp3" autoplay loop></audio>
+    <!-- Musik Background (hanya akan diputar setelah tombol diklik) -->
+    <audio id="birthday-music" src="https://cdn.pixabay.com/download/audio/2024/01/17/73275_birthday-card.mp3" preload="auto"></audio>
 
     <div class="container">
         <h1>Selamat Ulang Tahun Elshadday Sinaga!</h1>
@@ -187,17 +184,17 @@
 
     <!-- Kartu Tarot -->
     <div class="tarot-container">
-        <div class="tarot-card" onclick="revealCard(this, 'Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(https://www.example.com/card-image1.jpg)')">
-            <p>Kartu 1</p>
+        <div class="tarot-card" onclick="revealCard(this, 'Buka Kartu 1', 'Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(https://www.example.com/card-image1.jpg)')">
+            <p>Buka Kartu 1</p>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Cinta sejati akan kembali, percayalah!', 'url(https://www.example.com/card-image2.jpg)')">
-            <p>Kartu 2</p>
+        <div class="tarot-card" onclick="revealCard(this, 'Buka Kartu 2', 'Cinta sejati akan kembali, percayalah!', 'url(https://www.example.com/card-image2.jpg)')">
+            <p>Buka Kartu 2</p>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(https://www.example.com/card-image3.jpg)')">
-            <p>Kartu 3</p>
+        <div class="tarot-card" onclick="revealCard(this, 'Buka Kartu 3', 'Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(https://www.example.com/card-image3.jpg)')">
+            <p>Buka Kartu 3</p>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(https://www.example.com/card-image4.jpg)')">
-            <p>Kartu 4</p>
+        <div class="tarot-card" onclick="revealCard(this, 'Buka Kartu 4', 'Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(https://www.example.com/card-image4.jpg)')">
+            <p>Buka Kartu 4</p>
         </div>
     </div>
 
@@ -205,17 +202,20 @@
 
     <!-- Script untuk musik dan game -->
     <script>
-        // Memutar musik
+        // Memutar musik saat tombol diklik
         function playMusic() {
             var audio = document.getElementById('birthday-music');
             audio.play();
         }
 
         // Fungsi untuk menampilkan kartu tarot dan mengganti gambar latar belakangnya
-        function revealCard(card, message, bgImage) {
+        function revealCard(card, cardText, message, bgImage) {
             card.classList.toggle('flip'); // Menambahkan efek flip pada kartu
             var result = document.getElementById('result');
             result.textContent = message;
+
+            // Mengubah teks pada kartu menjadi pesan saat dibuka
+            card.querySelector('p').textContent = message;
             card.style.backgroundImage = bgImage;  // Mengganti gambar kartu saat di klik
         }
     </script>
