@@ -197,7 +197,7 @@
 
     <!-- Kartu Tarot -->
     <div class="tarot-container">
-        <div class="tarot-card" onclick="revealCard(this, 'Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(https://www.example.com/card-image1.jpg)')">
+        <div class="tarot-card" onclick="revealCard(this, 'Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(https://www.example.com/card-image1.jpg)', 'Kartu 1')">
             <div class="tarot-card-inner">
                 <div class="tarot-card-front">
                     Buka Kartu 1
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Cinta sejati akan kembali, percayalah!', 'url(https://www.example.com/card-image2.jpg)')">
+        <div class="tarot-card" onclick="revealCard(this, 'Cinta sejati akan kembali, percayalah!', 'url(https://www.example.com/card-image2.jpg)', 'Kartu 2')">
             <div class="tarot-card-inner">
                 <div class="tarot-card-front">
                     Buka Kartu 2
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(https://www.example.com/card-image3.jpg)')">
+        <div class="tarot-card" onclick="revealCard(this, 'Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(https://www.example.com/card-image3.jpg)', 'Kartu 3')">
             <div class="tarot-card-inner">
                 <div class="tarot-card-front">
                     Buka Kartu 3
@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-        <div class="tarot-card" onclick="revealCard(this, 'Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(https://www.example.com/card-image4.jpg)')">
+        <div class="tarot-card" onclick="revealCard(this, 'Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(https://www.example.com/card-image4.jpg)', 'Kartu 4')">
             <div class="tarot-card-inner">
                 <div class="tarot-card-front">
                     Buka Kartu 4
@@ -250,11 +250,13 @@
         }
 
         // Fungsi untuk menampilkan kartu tarot dan mengganti gambar latar belakangnya
-        function revealCard(card, message, bgImage) {
+        function revealCard(card, message, bgImage, cardName) {
             card.querySelector('.tarot-card-inner').classList.toggle('flip'); // Menambahkan efek flip pada kartu
             var result = document.getElementById('result');
             result.textContent = message;
             card.style.backgroundImage = bgImage;  // Mengganti gambar kartu saat di klik
+            card.querySelector('.tarot-card-front').textContent = ''; // Menghapus teks Buka Kartu
+            card.querySelector('.tarot-card-back').textContent = cardName; // Menampilkan nama kartu
         }
     </script>
 
