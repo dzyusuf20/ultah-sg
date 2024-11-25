@@ -4,37 +4,115 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="bg-gray-100 overflow-hidden">
-  <!-- Parallax Section -->
-  <div class="h-screen bg-fixed bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1920x1080/?birthday,party');">
-    <div class="h-full flex items-center justify-center">
-      <h1 class="text-white text-5xl md:text-7xl font-bold drop-shadow-lg">
-        Happy Birthday, <span class="text-yellow-300">Elshadday Sinaga</span> 🎉
+<body class="bg-gray-100 text-gray-800 overflow-x-hidden">
+  <!-- Header with Parallax -->
+  <header class="relative h-screen bg-fixed bg-cover bg-center flex items-center justify-center" 
+    style="background-image: url('https://source.unsplash.com/1920x1080/?birthday,celebration');">
+    <div class="text-center">
+      <h1 class="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg animate__fadeInDown">
+        Happy Birthday, <span class="text-yellow-400">Elshadday Sinaga</span> 🎉
       </h1>
+      <p class="text-lg md:text-2xl text-white mt-4 drop-shadow-md">"Special day for someone special"</p>
+      <button id="start-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition">
+        Explore Surprise!
+      </button>
     </div>
-  </div>
+  </header>
 
-  <!-- Content Section -->
-  <div class="py-12 px-6 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-center">
-    <h2 class="text-3xl md:text-5xl font-semibold">Surprise for You!</h2>
-    <p class="mt-4 text-lg">Click the cards below for a special message 🎁</p>
-    
-    <!-- Card Grid -->
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 md:px-20">
-      <!-- Card 1 -->
-      <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition">
-        <h3 class="text-xl font-bold text-center">Card 1</h3>
-        <p class="hidden">"You're an amazing person! Keep smiling 😄"</p>
+  <!-- Main Section -->
+  <main class="py-16 px-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold">Click the Tarot Cards for a Message</h2>
+      <p class="mt-4 text-lg">Each card holds a unique surprise for you!</p>
+
+      <!-- Tarot Card Section -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-blue-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 1</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"Keep smiling, the best is yet to come!"</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-red-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 2</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"Life's greatest blessings are ahead. Happy Birthday!"</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-green-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 3</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"May happiness follow you forever. Cheers!"</p>
+          </div>
+        </div>
       </div>
-      <!-- Add more cards as needed -->
     </div>
-  </div>
-  
+  </main>
+
   <!-- Footer -->
-  <footer class="text-center py-4 bg-gray-800 text-white">
-    <p>&copy; 2024 Birthday Surprise</p>
+  <footer class="py-4 bg-gray-800 text-white text-center">
+    <p>&copy; 2024 Birthday Surprise. All rights reserved.</p>
   </footer>
+
+  <!-- Background Music -->
+  <audio id="background-music" src="https://cdn.pixabay.com/download/audio/2023/01/31/audio_b9f6962ec4.mp3?filename=birthday-card-73275.mp3" loop></audio>
+
+  <!-- GSAP Animation Script -->
+  <script>
+    document.getElementById('start-btn').addEventListener('click', () => {
+      const music = document.getElementById('background-music');
+      music.play();
+
+      gsap.fromTo(
+        "header h1",
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1.5 }
+      );
+    });
+
+    const tarotCards = document.querySelectorAll('.tarot-card');
+    tarotCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
+
+  <!-- Tailwind Styles for Tarot Flip -->
+  <style>
+    .tarot-card {
+      perspective: 1000px;
+    }
+    .tarot-card .front,
+    .tarot-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    .tarot-card .back {
+      transform: rotateY(180deg);
+    }
+    .tarot-card.flipped .front {
+      transform: rotateY(180deg);
+    }
+    .tarot-card.flipped .back {
+      transform: rotateY(0);
+    }
+  </style>
 </body>
 </html>
