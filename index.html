@@ -35,7 +35,7 @@
     </div>
 
     <!-- Tambahkan Audio -->
-    <audio id="birthday-music" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" preload="auto"></audio>
+    <audio id="birthdayMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" preload="auto"></audio>
   </section>
 
   <footer class="text-center py-8 bg-gray-800 text-white">
@@ -44,8 +44,15 @@
 
   <script>
     document.getElementById('mulai-btn').addEventListener('click', function() {
-      const audio = document.getElementById('birthday-music');
-      audio.play();
+      const audio = document.getElementById('birthdayMusic');
+      audio.play()
+        .then(() => {
+          console.log('Musik berhasil diputar');
+        })
+        .catch((error) => {
+          console.error('Gagal memutar musik:', error);
+          alert('Klik tombol lagi jika musik tidak berputar!');
+        });
     });
 
     const cards = document.querySelectorAll('.tarot-card');

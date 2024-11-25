@@ -12,8 +12,15 @@ surpriseButton.addEventListener('click', () => {
     surpriseSection.style.display = 'block';
     fireworks.style.display = 'block';
     
-    // Stop music if needed
+    // Play music if paused
     if (music.paused) {
-        music.play();
+        music.play()
+            .then(() => {
+                console.log('Musik berhasil diputar');
+            })
+            .catch((error) => {
+                console.error('Gagal memutar musik:', error);
+                alert('Klik tombol lagi jika musik tidak berputar!');
+            });
     }
 });
