@@ -1,10 +1,18 @@
-document.addEventListener('mousemove', (e) => {
-    let x = (e.clientX / window.innerWidth) * 100;
-    let y = (e.clientY / window.innerHeight) * 100;
-    document.querySelector('.hero').style.backgroundPosition = `${x}% ${y}%`;
+// GSAP Animations for Parallax Effect
+gsap.from(".hero-section h1", { duration: 2, opacity: 0, y: -50 });
+gsap.from(".hero-section h2", { duration: 2, opacity: 0, y: 50 });
+gsap.from(".hero-section p", { duration: 2, opacity: 0, y: 50, delay: 1 });
+
+// Parallax Scroll Effect
+window.addEventListener('scroll', () => {
+    let scrollPosition = window.scrollY;
+    let parallaxSpeed = scrollPosition * 0.5;
+
+    document.querySelector('.hero-section').style.backgroundPosition = `center ${parallaxSpeed}px`;
 });
 
-document.querySelectorAll('.card').forEach(card => {
+// Adding Hover Effect for Tarot Cards
+document.querySelectorAll('.tarot-card').forEach(card => {
     card.addEventListener('mouseover', () => {
         card.style.transform = 'scale(1.1)';
     });
@@ -14,29 +22,15 @@ document.querySelectorAll('.card').forEach(card => {
     });
 });
 
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const heroSection = document.querySelector('.hero');
-
-    if (scrollPosition > 50) {
-        heroSection.style.backgroundColor = '#ff6f00';
-    } else {
-        heroSection.style.backgroundColor = '#ff5722';
-    }
-});
-
-// Tarot card random message generator
-const tarotCards = document.querySelectorAll('.card');
-const tarotMessages = [
-    'Keberuntungan ada di tanganmu!',
-    'Jaga kesehatanmu, itu yang paling penting.',
-    'Cinta akan datang dengan cara yang tak terduga.',
-    'Kariermu akan bersinar terang.',
-    'Kedamaian batin akan membawa kebahagiaan.',
-    'Keberanianmu akan mengubah segalanya.',
-    'Kesuksesan sedang menantimu di setiap langkah.'
-];
-
-tarotCards.forEach((card, index) => {
-    card.textContent = tarotMessages[index];
+// Smooth Scroll to Sections
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+            top: targetSection.offsetTop,
+            behavior: 'smooth'
+        });
+    });
 });
