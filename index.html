@@ -1,101 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Elshadday Sinaga</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<body class="bg-gradient-to-r from-purple-500 to-blue-500 text-white overflow-hidden">
+  <!-- Header -->
+  <header class="text-center p-5">
+    <h1 class="text-5xl font-bold">Selamat Ulang Tahun, Elshadday Sinaga!</h1>
+    <p class="mt-2 text-xl">Semoga hari ini penuh kebahagiaan!</p>
+  </header>
 
-<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-screen overflow-hidden">
+  <!-- Angka 20 -->
+  <section class="relative flex justify-center items-center mt-10">
+    <div id="number" class="text-9xl font-extrabold text-yellow-400">20</div>
+  </section>
 
-    <!-- Audio -->
-    <audio id="birthday-audio" preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung tag audio.
-    </audio>
+  <!-- Tombol -->
+  <section class="text-center mt-10">
+    <button id="startBtn" class="bg-pink-500 text-xl px-6 py-3 rounded-lg hover:bg-pink-700 transition">
+      Klik Untuk Memulai!
+    </button>
+  </section>
 
-    <div class="flex justify-center items-center h-full text-white flex-col">
-        <!-- Judul -->
-        <h1 class="text-5xl font-bold mb-6 fade-in">Selamat Ulang Tahun Elshadday Sinaga</h1>
+  <!-- Kartu Tarot -->
+  <section id="tarot" class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5 p-5">
+    <!-- Kartu akan ditambahkan di JavaScript -->
+  </section>
 
-        <!-- Tombol untuk memutar musik -->
-        <button id="play-music-btn" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg text-lg mb-6 fade-in">
-            Klik untuk Memutar Lagu Ulang Tahun
-        </button>
+  <!-- Game Puzzle -->
+  <section class="text-center mt-20">
+    <h2 class="text-3xl font-semibold">Game Puzzle</h2>
+    <p class="text-lg mt-3">Susun puzzle untuk membuka pesan khusus!</p>
+    <div id="puzzleContainer" class="mt-10 grid grid-cols-3 gap-3"></div>
+  </section>
 
-        <!-- Kartu Tarot -->
-        <div class="flex justify-center mb-10 fade-in">
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>Buka Kartu 1</p>
-                    </div>
-                    <div class="card-back">
-                        <p>Ini adalah kartu pertama! Selamat ulang tahun!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>Buka Kartu 2</p>
-                    </div>
-                    <div class="card-back">
-                        <p>Kartu 2: Cinta selalu menemukan jalannya.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>Buka Kartu 3</p>
-                    </div>
-                    <div class="card-back">
-                        <p>Kartu 3: Kebahagiaan datang dari dalam diri.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>Buka Kartu 4</p>
-                    </div>
-                    <div class="card-back">
-                        <p>Kartu 4: Waktu untuk meraih impian!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>Buka Kartu 5</p>
-                    </div>
-                    <div class="card-back">
-                        <p>Kartu 5: Hidupmu penuh dengan kesempatan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer fade-in">
-            <p>Semoga harimu luar biasa, Elshadday!</p>
-            <div class="social-icons">
-                <a href="#">❤️</a>
-                <a href="#">🎉</a>
-                <a href="#">🎂</a>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <audio id="audio" src="assets/audio/happy_birthday.mp3"></audio>
 </body>
-
 </html>
