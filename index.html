@@ -83,7 +83,6 @@
             box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.6);
         }
 
-        /* Animasi Teks */
         .text-animate {
             font-size: 28px;
             color: white;
@@ -94,11 +93,6 @@
         @keyframes fadeInText {
             0% { opacity: 0; transform: translateY(50px); }
             100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Musik */
-        audio {
-            display: none;
         }
 
         /* Kartu Tarot */
@@ -126,6 +120,8 @@
             font-size: 18px;
             color: #333;
             font-weight: bold;
+            background-size: cover;
+            background-position: center;
         }
 
         .tarot-card:hover {
@@ -143,11 +139,8 @@
 </head>
 <body>
 
-    <!-- Musik Background (diperbarui untuk diputar setelah tombol ditekan) -->
-    <audio id="happyBirthday" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Musik Background (diperbarui dengan YouTube Embed) -->
+    <div id="youtube-player"></div>
 
     <div class="container">
         <h1>Selamat Ulang Tahun Elshadday Sinaga!</h1>
@@ -155,29 +148,3 @@
         <span class="heart">❤️</span>
         <button class="button" onclick="playMusic();">Salam Hangat</button>
     </div>
-
-    <!-- Kartu Tarot -->
-    <div class="tarot-container">
-        <div class="tarot-card" onclick="revealCard('Kamu sangat berharga! Jangan ragu untuk kembali!')">Kartu 1</div>
-        <div class="tarot-card" onclick="revealCard('Cinta sejati akan kembali, percayalah!')">Kartu 2</div>
-        <div class="tarot-card" onclick="revealCard('Kamu layak bahagia! Kembali dan mulailah kisah baru!')">Kartu 3</div>
-        <div class="tarot-card" onclick="revealCard('Jangan takut untuk membuka hati! Cinta akan menemui jalan!')">Kartu 4</div>
-    </div>
-
-    <div class="result" id="result"></div>
-
-    <!-- Script untuk musik dan game -->
-    <script>
-        function playMusic() {
-            var audio = document.getElementById('happyBirthday');
-            audio.play();  // Memulai musik setelah tombol diklik
-        }
-
-        function revealCard(message) {
-            var result = document.getElementById('result');
-            result.textContent = message;  // Menampilkan pesan dari kartu yang dipilih
-        }
-    </script>
-
-</body>
-</html>
