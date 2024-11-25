@@ -6,92 +6,59 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: white;
-  background-color: #f8f8f8;
+  background-color: #f4f4f4;
+  overflow: hidden;
 }
 
-.parallax {
+.hero {
   position: relative;
-  background-image: url('your-image.jpg'); 
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  background-image: url('your-image.jpg'); /* Ganti dengan gambar */
   height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: background 1s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+.overlay h1, .overlay p {
   text-align: center;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-h1, h2, p {
-  margin: 0;
   font-weight: 600;
 }
 
-h1 {
+.overlay h1 {
   font-size: 3rem;
 }
 
-h2 {
+.overlay p {
   font-size: 2rem;
-  margin-top: 10px;
-}
-
-p {
-  font-size: 1.5rem;
-  margin-top: 5px;
 }
 
 .message {
   padding: 50px 0;
-  background-color: #ffffff;
-  color: #333;
-}
-
-.message h3 {
+  background-color: #fff;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
 }
 
-.tarot-cards {
+.cards {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  width: 200px;
+  width: 150px;
   height: 200px;
+  background-color: #fff;
+  margin: 20px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  align-items: center;
+  font-weight: 600;
   transition: transform 0.3s ease;
 }
 
 .card:hover {
   transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .parallax {
-      height: 70vh;
-  }
-
-  .card {
-      width: 100%;
-      height: auto;
-  }
 }
