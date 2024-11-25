@@ -101,43 +101,40 @@
             display: none;
         }
 
-        /* Style untuk Game */
-        .game-container {
+        /* Kartu Tarot */
+        .tarot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
             margin-top: 40px;
+            padding: 20px;
+        }
+
+        .tarot-card {
+            width: 150px;
+            height: 250px;
             background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            color: #333;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        input[type="number"] {
-            padding: 10px;
-            font-size: 20px;
-            width: 100px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-right: 10px;
-        }
-
-        .game-button {
-            padding: 10px 20px;
-            background-color: #FF6347;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            color: white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
         }
 
-        .game-button:hover {
-            background-color: #FF4500;
+        .tarot-card:hover {
+            transform: scale(1.1);
         }
 
         .result {
+            font-size: 20px;
             margin-top: 20px;
-            font-size: 24px;
             font-weight: bold;
             color: #FF6347;
         }
@@ -148,7 +145,7 @@
 
     <!-- Musik Background (diperbarui untuk diputar setelah tombol ditekan) -->
     <audio id="happyBirthday" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -159,37 +156,26 @@
         <button class="button" onclick="playMusic();">Salam Hangat</button>
     </div>
 
-    <!-- Game Tebak Angka -->
-    <div class="game-container">
-        <h2>Tebak Angka!</h2>
-        <p>Masukkan angka antara 1 dan 10:</p>
-        <input type="number" id="guess" min="1" max="10">
-        <button class="game-button" onclick="checkGuess()">Tebak!</button>
-        <div class="result" id="result"></div>
+    <!-- Kartu Tarot -->
+    <div class="tarot-container">
+        <div class="tarot-card" onclick="revealCard('Kamu sangat berharga! Jangan ragu untuk kembali!')">Kartu 1</div>
+        <div class="tarot-card" onclick="revealCard('Cinta sejati akan kembali, percayalah!')">Kartu 2</div>
+        <div class="tarot-card" onclick="revealCard('Kamu layak bahagia! Kembali dan mulailah kisah baru!')">Kartu 3</div>
+        <div class="tarot-card" onclick="revealCard('Jangan takut untuk membuka hati! Cinta akan menemui jalan!')">Kartu 4</div>
     </div>
+
+    <div class="result" id="result"></div>
 
     <!-- Script untuk musik dan game -->
     <script>
-        var randomNumber = Math.floor(Math.random() * 10) + 1; // Angka acak antara 1 dan 10
-
         function playMusic() {
             var audio = document.getElementById('happyBirthday');
             audio.play();  // Memulai musik setelah tombol diklik
         }
 
-        function checkGuess() {
-            var userGuess = document.getElementById('guess').value;
+        function revealCard(message) {
             var result = document.getElementById('result');
-            
-            if (userGuess == randomNumber) {
-                result.textContent = "Selamat! Kamu menebak angka dengan benar!";
-                result.style.color = "green";
-            } else {
-                result.textContent = "Ups! Coba lagi. Angka yang benar adalah: " + randomNumber;
-                result.style.color = "red";
-            }
-
-            randomNumber = Math.floor(Math.random() * 10) + 1; // Reset angka acak
+            result.textContent = message;  // Menampilkan pesan dari kartu yang dipilih
         }
     </script>
 
