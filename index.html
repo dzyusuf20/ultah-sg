@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Elshadday</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!-- Music -->
-    <audio id="birthdayMusic" autoplay loop>
-        <source src="https://cdn.pixabay.com/download/audio/2023/05/18/audio_34262047f1.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <!-- Parallax Container -->
-    <div class="parallax-container">
-        <div class="parallax-layer layer-bg"></div>
-        <div class="parallax-layer layer-message">
-            <h1>Happy Birthday, Elshadday Sinaga 🎉</h1>
-            <p>
-                Hari ini adalah hari yang istimewa karena kamu lahir ke dunia ini.  
-                Aku berharap kebahagiaanmu selalu bertambah, seperti cintaku yang tidak pernah hilang untukmu.
-            </p>
-            <button id="surpriseButton">Klik untuk Kejutan</button>
-        </div>
+<body class="bg-gray-100 overflow-hidden">
+  <!-- Parallax Section -->
+  <div class="h-screen bg-fixed bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1920x1080/?birthday,party');">
+    <div class="h-full flex items-center justify-center">
+      <h1 class="text-white text-5xl md:text-7xl font-bold drop-shadow-lg">
+        Happy Birthday, <span class="text-yellow-300">Elshadday Sinaga</span> 🎉
+      </h1>
     </div>
+  </div>
 
-    <!-- Surprise Section -->
-    <div class="surprise-section">
-        <div class="fireworks"></div>
-        <p class="surprise-message">Selamat Ulang Tahun! Semoga kita bisa memperbaiki segalanya! ❤️</p>
+  <!-- Content Section -->
+  <div class="py-12 px-6 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-center">
+    <h2 class="text-3xl md:text-5xl font-semibold">Surprise for You!</h2>
+    <p class="mt-4 text-lg">Click the cards below for a special message 🎁</p>
+    
+    <!-- Card Grid -->
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 px-4 md:px-20">
+      <!-- Card 1 -->
+      <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition">
+        <h3 class="text-xl font-bold text-center">Card 1</h3>
+        <p class="hidden">"You're an amazing person! Keep smiling 😄"</p>
+      </div>
+      <!-- Add more cards as needed -->
     </div>
-
-    <script src="script.js"></script>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-gray-800 text-white">
+    <p>&copy; 2024 Birthday Surprise</p>
+  </footer>
 </body>
 </html>
