@@ -7,57 +7,65 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="bg-gradient-to-r from-purple-700 to-pink-600 text-white">
-  <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+  <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
     <div class="text-center">
-      <h1 class="text-5xl md:text-7xl font-extrabold drop-shadow-lg">Selamat Ulang Tahun, <span class="text-yellow-300">Elshadday Sinaga</span> 🎉</h1>
-      <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari spesial untuk seseorang yang luar biasa"</p>
-      <button id="mulai-btn" class="mt-10 bg-yellow-300 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">Klik Untuk Memulai</button>
+      <h1 class="text-6xl font-extrabold drop-shadow-lg">Selamat Ulang Tahun, Elshadday Sinaga 🎉</h1>
+      <p class="text-xl mt-4 drop-shadow-md">"Semoga hari ini menjadi momen yang tak terlupakan!"</p>
+      <p class="mt-2 text-lg">Selamat datang di usia ke-20, tahun penuh kejutan dan peluang!</p>
+      <button id="mulai-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition duration-300">Klik Untuk Memulai</button>
     </div>
   </header>
 
-  <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-700">
+  <section class="py-16 bg-gradient-to-r from-purple-700 to-pink-600">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold text-white mb-6">Kartu Tarot Spesial</h2>
-      <p class="text-lg text-white">Klik setiap kartu untuk melihat pesan tersembunyi</p>
+      <h2 class="text-4xl font-extrabold mb-6">Kartu Tarot Spesial</h2>
+      <p class="text-lg">Klik setiap kartu untuk membuka pesan rahasia!</p>
     </div>
-
     <div class="flex justify-center flex-wrap gap-6 px-6">
-      <div id="card-1" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
-        <h3 class="text-2xl font-bold">Kartu 1</h3>
+      <!-- Kartu Tarot -->
+      <div id="card-1" class="tarot-card bg-yellow-300 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold text-gray-900">Kartu 1</h3>
       </div>
-      <div id="card-2" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
-        <h3 class="text-2xl font-bold">Kartu 2</h3>
+      <div id="card-2" class="tarot-card bg-yellow-300 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold text-gray-900">Kartu 2</h3>
       </div>
-      <div id="card-3" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
-        <h3 class="text-2xl font-bold">Kartu 3</h3>
+      <div id="card-3" class="tarot-card bg-yellow-300 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold text-gray-900">Kartu 3</h3>
+      </div>
+      <div id="card-4" class="tarot-card bg-yellow-300 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold text-gray-900">Kartu 4</h3>
+      </div>
+      <div id="card-5" class="tarot-card bg-yellow-300 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold text-gray-900">Kartu 5</h3>
       </div>
     </div>
-
-    <audio id="birthday-music" src="https://cdn.pixabay.com/download/audio/2023/03/17/audio_524a02eec2.mp3?filename=birthday-card-73275.mp3" preload="auto"></audio>
+    <audio id="birthday-music" src="https://your-server-path/happy_birthday.mp3" preload="auto"></audio>
   </section>
 
-  <footer class="text-center py-8 bg-gray-800 text-white">
-    <p>© 2024 Ulang Tahun Spesial</p>
+  <footer class="text-center py-8 bg-gray-900 text-white">
+    <p>© 2024 Ulang Tahun Ke-20</p>
   </footer>
 
   <script>
-    document.getElementById('mulai-btn').addEventListener('click', function() {
+    document.getElementById('mulai-btn').addEventListener('click', function () {
       const audio = document.getElementById('birthday-music');
-      audio.play();
+      audio.play().catch(error => console.log('Audio tidak dapat diputar otomatis:', error));
     });
 
     const cards = document.querySelectorAll('.tarot-card');
     const messages = [
-      "Kamu adalah alasan hari ini istimewa.",
-      "Semoga tahun ini penuh kebahagiaan untukmu.",
-      "Balikan? Haha, pikirkan lagi ya! 😜"
+      "Selamat datang di usia ke-20, tahun penuh kejutan!",
+      "Hari baru, peluang baru, jadilah yang terbaik!",
+      "Semoga harimu dipenuhi kebahagiaan dan cinta!",
+      "Kamu luar biasa, teruslah menjadi inspirasi!",
+      "Kita akan terus menciptakan kenangan indah bersama!"
     ];
 
     cards.forEach((card, index) => {
       card.addEventListener('click', () => {
         card.innerHTML = `<p class="text-center text-gray-900 px-2">${messages[index]}</p>`;
-        gsap.from(card, { duration: 1, rotateY: 180, ease: 'power2.inOut' });
+        gsap.to(card, { duration: 1, rotateY: 180, ease: 'power2.inOut' });
       });
     });
   </script>
