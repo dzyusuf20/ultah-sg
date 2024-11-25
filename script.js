@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     tarotSection.appendChild(card);
   });
-  document.addEventListener("DOMContentLoaded", () => {
+});
+document.addEventListener("DOMContentLoaded", () => {
     const puzzleContainer = document.getElementById("puzzle-container");
     const message = document.getElementById("puzzle-message");
     const tiles = [...Array(16).keys()]; // Tiles: 0 to 15
@@ -92,4 +93,3 @@ document.addEventListener("DOMContentLoaded", () => {
     startGame();
   });
   
-});
