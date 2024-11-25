@@ -13,32 +13,68 @@ body {
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .hero {
-  text-align: center;
   background-color: #ff5722;
-  padding: 100px 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  margin-bottom: 50px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: background 1s ease;
 }
 
-.overlay h1 {
-  font-size: 3rem;
-  font-weight: 600;
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  animation: fadeIn 2s ease-out;
+}
+
+.hero p {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+  animation: fadeIn 3s ease-out;
+}
+
+.message, .about, .tarot {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.overlay p {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #ff5722;
+  color: white;
+  padding: 30px;
+  margin: 20px;
   font-size: 1.5rem;
-  font-weight: 500;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .footer {
   text-align: center;
-  font-size: 1rem;
-  font-weight: 300;
+  padding: 20px;
+  background-color: #222;
   color: #bbb;
 }
 
@@ -47,6 +83,15 @@ body {
   100% { opacity: 1; }
 }
 
-.hero {
-  animation: fadeIn 2s ease-out;
+@media screen and (max-width: 768px) {
+  .hero h1 {
+      font-size: 3rem;
+  }
+  .hero p {
+      font-size: 1.5rem;
+  }
+  .card {
+      font-size: 1.2rem;
+      padding: 20px;
+  }
 }
