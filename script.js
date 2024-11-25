@@ -1,11 +1,5 @@
-// Function to play Happy Birthday song when the button is clicked
-function playBirthdaySong() {
-    var audio = document.getElementById('birthdaySong');
-    audio.play();
-}
-
-// Function to flip the card
-function flipCard(cardNumber) {
-    var card = document.getElementById('card' + cardNumber);
-    card.classList.toggle('flipped');
-}
+window.addEventListener('scroll', function() {
+    let scrollPosition = window.pageYOffset;
+    let parallaxElement = document.getElementById('hero');
+    parallaxElement.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+});

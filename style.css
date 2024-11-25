@@ -1,45 +1,97 @@
-body {
-  font-family: 'Fredoka', sans-serif;
-  background-color: #f0f8ff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1, h2, h3 {
-  font-weight: bold;
+body {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background-color: #f8f8f8;
+}
+
+.parallax {
+  position: relative;
+  background-image: url('your-image.jpg'); 
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1, h2, p {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 h2 {
-  color: #ff69b4;
-  font-size: 80px;
-  animation: glow 1.5s ease-in-out infinite alternate;
+  font-size: 2rem;
+  margin-top: 10px;
 }
 
-#age {
-  font-size: 120px;
-  color: #ff6347;
-  font-weight: 700;
-  text-shadow: 0 0 20px rgba(255, 99, 71, 0.7);
+p {
+  font-size: 1.5rem;
+  margin-top: 5px;
 }
 
-.tarot-card {
-  background-color: #f8f8f8;
-  border: 2px solid #ddd;
-  padding: 20px;
-  border-radius: 10px;
+.message {
+  padding: 50px 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.message h3 {
   text-align: center;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.tarot-cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 
-.tarot-card:hover {
+.card:hover {
   transform: scale(1.1);
 }
 
-@keyframes glow {
-  0% {
-      text-shadow: 0 0 10px rgba(255, 105, 180, 0.7), 0 0 20px rgba(255, 105, 180, 0.7);
+@media (max-width: 768px) {
+  .parallax {
+      height: 70vh;
   }
-  100% {
-      text-shadow: 0 0 20px rgba(255, 99, 71, 0.7), 0 0 30px rgba(255, 99, 71, 0.7);
+
+  .card {
+      width: 100%;
+      height: auto;
   }
 }
