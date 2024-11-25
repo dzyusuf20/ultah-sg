@@ -113,7 +113,7 @@
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease, opacity 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -123,6 +123,25 @@
             background-size: cover;
             background-position: center;
             text-align: center;
+            position: relative;
+        }
+
+        .tarot-card.flip {
+            transform: rotateY(180deg);
+        }
+
+        .tarot-card p {
+            position: absolute;
+            opacity: 0;
+            font-size: 16px;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+            transition: opacity 0.6s ease;
+            padding: 10px;
+        }
+
+        .tarot-card.flip p {
+            opacity: 1;
         }
 
         .tarot-card:hover {
@@ -152,10 +171,18 @@
 
     <!-- Kartu Tarot -->
     <div class="tarot-container">
-        <div class="tarot-card" onclick="revealCard('Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(\'https://www.example.com/card-image1.jpg\')')">Kartu 1</div>
-        <div class="tarot-card" onclick="revealCard('Cinta sejati akan kembali, percayalah!', 'url(\'https://www.example.com/card-image2.jpg\')')">Kartu 2</div>
-        <div class="tarot-card" onclick="revealCard('Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(\'https://www.example.com/card-image3.jpg\')")">Kartu 3</div>
-        <div class="tarot-card" onclick="revealCard('Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(\'https://www.example.com/card-image4.jpg\')")">Kartu 4</div>
+        <div class="tarot-card" onclick="revealCard(this, 'Kamu sangat berharga! Jangan ragu untuk kembali!', 'url(\'https://www.example.com/card-image1.jpg\')')">
+            <p>Kartu 1</p>
+        </div>
+        <div class="tarot-card" onclick="revealCard(this, 'Cinta sejati akan kembali, percayalah!', 'url(\'https://www.example.com/card-image2.jpg\')')">
+            <p>Kartu 2</p>
+        </div>
+        <div class="tarot-card" onclick="revealCard(this, 'Kamu layak bahagia! Kembali dan mulailah kisah baru!', 'url(\'https://www.example.com/card-image3.jpg\')')">
+            <p>Kartu 3</p>
+        </div>
+        <div class="tarot-card" onclick="revealCard(this, 'Jangan takut untuk membuka hati! Cinta akan menemui jalan!', 'url(\'https://www.example.com/card-image4.jpg\')')">
+            <p>Kartu 4</p>
+        </div>
     </div>
 
     <div class="result" id="result"></div>
@@ -179,10 +206,10 @@
         }
 
         // Fungsi untuk menampilkan kartu tarot dan mengganti gambar latar belakangnya
-        function revealCard(message, bgImage) {
+        function revealCard(card, message, bgImage) {
+            card.classList.toggle('flip'); // Menambahkan efek flip pada kartu
             var result = document.getElementById('result');
             result.textContent = message;
-            var card = event.target;
             card.style.backgroundImage = bgImage;  // Mengganti gambar kartu saat di klik
         }
     </script>
