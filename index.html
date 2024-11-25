@@ -14,7 +14,7 @@
       color: red;
       opacity: 0.7;
       z-index: 9999;
-      transition: transform 0.1s ease;
+      transform: translate(-50%, -50%);
     }
   </style>
 </head>
@@ -34,7 +34,6 @@
       <p class="text-lg text-white">Klik untuk membuka kartu dan temukan kata-kata spesial</p>
     </div>
 
-    <!-- Grid Kartu Tarot -->
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 px-6">
       <div id="card-1" class="tarot-card bg-red-500 hover:bg-red-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
         <h3 class="text-2xl font-bold text-white">Kartu 1</h3>
@@ -64,22 +63,21 @@
   </footer>
 
   <script>
-    // Tambahkan elemen love ke body
+    // Love Cursor
     const loveCursor = document.createElement('div');
     loveCursor.className = 'love-cursor';
     loveCursor.textContent = '❤️';
     document.body.appendChild(loveCursor);
 
-    // Perbarui posisi love saat kursor bergerak
     document.addEventListener('mousemove', (e) => {
       gsap.to(loveCursor, {
-        x: e.clientX - 10,
-        y: e.clientY - 10,
+        x: e.clientX,
+        y: e.clientY,
         duration: 0.1,
       });
     });
 
-    // Tombol Mulai untuk memutar musik
+    // Tombol Mulai
     document.getElementById('mulai-btn').addEventListener('click', function () {
       const audio = document.getElementById('birthdayMusic');
       audio.play()
@@ -90,6 +88,28 @@
           console.error('Gagal memutar musik:', error);
           alert('Klik tombol lagi jika musik tidak berputar!');
         });
+
+      // Animasi Love pada Tombol
+      for (let i = 0; i < 10; i++) {
+        const love = document.createElement('div');
+        love.className = 'absolute text-red-500';
+        love.textContent = '❤️';
+        document.body.appendChild(love);
+
+        gsap.set(love, {
+          x: e.clientX,
+          y: e.clientY,
+          scale: Math.random() * 0.5 + 0.5,
+        });
+
+        gsap.to(love, {
+          y: '-=100',
+          opacity: 0,
+          scale: 0,
+          duration: 1,
+          onComplete: () => love.remove(),
+        });
+      }
     });
 
     // Kartu Tarot
@@ -103,7 +123,6 @@
       "Aku menghargai setiap momen kita, semoga selalu ada kebahagiaan untukmu.",
     ];
 
-    // Tambahkan pesan ke kartu
     cards.forEach((card, index) => {
       card.addEventListener('click', () => {
         card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
