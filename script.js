@@ -25,7 +25,7 @@ surpriseButton.addEventListener('click', () => {
     }
 });
 
-// Tombol Mulai untuk memutar musik dan efek emot love
+// Tombol Mulai untuk memutar musik dan efek hati
 document.getElementById('mulai-btn').addEventListener('click', function() {
   const audio = document.getElementById('birthdayMusic');
   audio.play()
@@ -37,31 +37,20 @@ document.getElementById('mulai-btn').addEventListener('click', function() {
       alert('Klik tombol lagi jika musik tidak berputar!');
     });
 
-  // Menambahkan banyak emotikon love ke halaman
-  for (let i = 0; i < 30; i++) { // Menambahkan 30 emotikon love
-    const love = document.createElement('div');
-    love.classList.add('love');
-    love.innerText = '💖';
-    document.body.appendChild(love);
+  // Tambahkan elemen hati
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  document.body.appendChild(heart);
 
-    // Animasi untuk setiap love
-    const randomX = Math.random() * window.innerWidth; // Posisi horizontal acak
-    const randomY = Math.random() * window.innerHeight; // Posisi vertikal acak
-    const size = Math.random() * 20 + 10; // Ukuran acak dari 10px sampai 30px
-    love.style.left = `${randomX}px`;
-    love.style.top = `${randomY}px`;
-    love.style.fontSize = `${size}px`;
+  // Animasi hati
+  setTimeout(() => {
+    heart.style.animation = 'heart-beat 1s ease-in-out infinite';
+  }, 100);
 
-    // Animasi pergerakan ke atas dan menghilang
-    setTimeout(() => {
-      love.style.animation = 'love-animation 2s forwards';
-    }, 100);
-    
-    // Hapus emot love setelah animasi selesai
-    setTimeout(() => {
-      love.remove();
-    }, 2500);
-  }
+  // Hapus elemen hati setelah animasi selesai
+  setTimeout(() => {
+    heart.remove();
+  }, 2000);
 });
 
 // Kartu Tarot
