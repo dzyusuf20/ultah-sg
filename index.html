@@ -113,6 +113,24 @@
             100% { opacity: 0; transform: scale(3); }
         }
 
+        /* Animasi Emotikon Love */
+        .love {
+            font-size: 80px;
+            color: red;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: loveAnimation 2s ease-out forwards;
+        }
+
+        @keyframes loveAnimation {
+            0% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+            50% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(20px) scale(1.5); }
+        }
+
         /* Musik */
         audio {
             display: none;
@@ -131,18 +149,27 @@
         <h1>Selamat Ulang Tahun Elshadday Sinaga!</h1>
         <p>Semoga hari ini penuh kebahagiaan dan kesuksesan. Teruslah menjadi pribadi yang luar biasa!</p>
         <span class="heart">❤️</span>
-        <button class="button" onclick="showFireworks()">Klik untuk Kejutan!</button>
+        <button class="button" onclick="showFireworks()">Salam Hangat</button>
     </div>
 
-    <!-- Efek Petasan -->
+    <!-- Efek Petasan dan Love -->
     <script>
         function showFireworks() {
+            // Menambahkan Efek Petasan
             var fireworks = document.createElement('div');
             fireworks.classList.add('fireworks');
             document.body.appendChild(fireworks);
 
+            // Menambahkan Efek Love
+            var love = document.createElement('div');
+            love.classList.add('love');
+            love.innerHTML = '❤️';
+            document.body.appendChild(love);
+
+            // Hapus efek setelah 2 detik
             setTimeout(function() {
                 fireworks.remove();
+                love.remove();
             }, 2000);
         }
 
