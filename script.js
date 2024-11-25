@@ -1,24 +1,27 @@
-document.getElementById('start-btn').addEventListener('click', () => {
-    const music = document.getElementById('birthday-music');
-    music.play();
-    gsap.fromTo(
-      "header h1",
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1.5 }
-    );
-  });
-  
-  const tarotCards = document.querySelectorAll('.tarot-card');
-  const messages = [
-    "Semangat dan jangan pernah menyerah!",
-    "Cinta akan datang di waktu yang tepat!",
-    "Kesuksesan menantimu, tetap berusaha!"
-  ];
-  
-  tarotCards.forEach((card, index) => {
+document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
-      gsap.to(card, { scale: 1.1, duration: 0.5, yoyo: true });
-      card.innerHTML = `<h3>${messages[index]}</h3>`;
+      card.classList.toggle('flipped');
+      const message = card.querySelector('.hidden');
+      if (message) {
+        message.classList.toggle('hidden');
+      }
     });
   });
   
+// Play music
+const music = document.getElementById('birthdayMusic');
+music.volume = 0.5;
+// Surprise Button
+const surpriseButton = document.getElementById('surpriseButton');
+const surpriseSection = document.querySelector('.surprise-section');
+const fireworks = document.querySelector('.fireworks');
+surpriseButton.addEventListener('click', () => {
+    // Show Surprise
+    surpriseSection.style.display = 'block';
+    fireworks.style.display = 'block';
+    
+    // Stop music if needed
+    if (music.paused) {
+        music.play();
+    }
+});

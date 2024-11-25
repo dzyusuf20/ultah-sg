@@ -1,38 +1,155 @@
+@@ -1,118 +1,65 @@
 <!DOCTYPE html>
+<html lang="en">
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <!-- Tailwind CSS -->
   <title>Selamat Ulang Tahun</title>
-  <link href="style.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP Animation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-  <header class="header">
+<body class="bg-gray-100 text-gray-800 overflow-x-hidden">
+  <!-- Header with Parallax -->
+  <header class="relative h-screen bg-fixed bg-cover bg-center flex items-center justify-center" 
+    style="background-image: url('https://source.unsplash.com/1920x1080/?birthday,celebration');">
+<body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+  <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
     <div class="text-center">
-      <h1>Selamat Ulang Tahun, <span class="highlight">Elshadday Sinaga</span> 🎉</h1>
-      <p>"Hari istimewa untuk seseorang yang spesial"</p>
-      <button id="start-btn">Klik untuk Mulai</button>
+      <h1 class="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg animate__fadeInDown">
+        Happy Birthday, <span class="text-yellow-400">Elshadday Sinaga</span> 🎉
+      </h1>
+      <p class="text-lg md:text-2xl text-white mt-4 drop-shadow-md">"Special day for someone special"</p>
+      <button id="start-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition">
+        Explore Surprise!
+      </button>
+      <h1 class="text-6xl md:text-8xl font-extrabold drop-shadow-lg">Selamat Ulang Tahun, <span class="text-yellow-400">Elshadday Sinaga</span> 🎉</h1>
+      <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari istimewa untuk seseorang yang spesial"</p>
+      <button id="mulai-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">Klik untuk Mulai</button>
     </div>
   </header>
 
-  <main class="main-content">
-    <section class="tarot-cards">
-      <h2>Kartu Tarot Kamu</h2>
-      <p>Klik untuk membuka kartu dan temukan kata-kata spesial</p>
-      <div class="cards-container">
-        <div class="tarot-card" id="card-1">Kartu 1</div>
-        <div class="tarot-card" id="card-2">Kartu 2</div>
-        <div class="tarot-card" id="card-3">Kartu 3</div>
+  <!-- Main Section -->
+  <main class="py-16 px-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold">Click the Tarot Cards for a Message</h2>
+      <p class="mt-4 text-lg">Each card holds a unique surprise for you!</p>
+  <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-500">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-white mb-6">Kartu Tarot Kamu</h2>
+      <p class="text-lg text-white">Klik untuk membuka kartu dan temukan kata-kata spesial</p>
+    </div>
+
+      <!-- Tarot Card Section -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-blue-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 1</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"Keep smiling, the best is yet to come!"</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-red-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 2</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"Life's greatest blessings are ahead. Happy Birthday!"</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="tarot-card bg-gray-900 text-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition">
+          <div class="front bg-green-400 h-64 flex items-center justify-center">
+            <p class="text-2xl font-bold">Card 3</p>
+          </div>
+          <div class="back bg-white h-64 flex items-center justify-center">
+            <p class="text-lg text-gray-800 font-semibold">"May happiness follow you forever. Cheers!"</p>
+          </div>
+        </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+      <div id="card-1" class="tarot-card bg-red-500 hover:bg-red-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 1</h3>
       </div>
-    </section>
+      <div id="card-2" class="tarot-card bg-blue-500 hover:bg-blue-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 2</h3>
+      </div>
+      <div id="card-3" class="tarot-card bg-green-500 hover:bg-green-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 3</h3>
+      </div>
+    </div>
   </main>
 
-  <footer class="footer">
+  <!-- Footer -->
+  <footer class="py-4 bg-gray-800 text-white text-center">
     <p>&copy; 2024 Birthday Surprise. All rights reserved.</p>
   </footer>
+    <audio id="birthday-music" src="https://pixabay.com/sound-effects/birthday-card-73275/" preload="auto"></audio>
+  </section>
 
-  <audio id="birthday-music" src="https://pixabay.com/sound-effects/birthday-card-73275/" preload="auto"></audio>
-  <script src="script.js"></script>
+  <!-- Background Music -->
+  <audio id="background-music" src="https://cdn.pixabay.com/download/audio/2023/01/31/audio_b9f6962ec4.mp3?filename=birthday-card-73275.mp3" loop></audio>
+  <footer class="text-center py-8 bg-gray-800 text-white">
+    <p>© 2024 Ulang Tahun Spesial</p>
+  </footer>
+
+  <!-- GSAP Animation Script -->
+  <script>
+    document.getElementById('start-btn').addEventListener('click', () => {
+      const music = document.getElementById('background-music');
+      music.play();
+      gsap.fromTo(
+        "header h1",
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1.5 }
+      );
+    document.getElementById('mulai-btn').addEventListener('click', function() {
+      const audio = document.getElementById('birthday-music');
+      audio.play();
+    });
+
+    const tarotCards = document.querySelectorAll('.tarot-card');
+    tarotCards.forEach(card => {
+    const cards = document.querySelectorAll('.tarot-card');
+    const messages = [
+      "Semangat dan jangan pernah menyerah!",
+      "Cinta akan datang di waktu yang tepat!",
+      "Kesuksesan menantimu, tetap berusaha!",
+    ];
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+        card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
+        gsap.from(card, { duration: 1, scale: 0, ease: 'bounce' });
+      });
+    });
+  </script>
+  <!-- Tailwind Styles for Tarot Flip -->
+  <style>
+    .tarot-card {
+      perspective: 1000px;
+    }
+    .tarot-card .front,
+    .tarot-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    .tarot-card .back {
+      transform: rotateY(180deg);
+    }
+    .tarot-card.flipped .front {
+      transform: rotateY(180deg);
+    }
+    .tarot-card.flipped .back {
+      transform: rotateY(0);
+    }
+  </style>
 </body>
 </html>
