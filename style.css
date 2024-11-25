@@ -99,3 +99,20 @@ button:hover {
     from { transform: scale(0); }
     to { transform: scale(1); }
 }
+
+/* Teks Dari Ardo */
+.dari-ardo {
+    font-size: 1rem; /* Ukuran font lebih kecil */
+    font-style: italic; /* Membuat teks miring */
+    font-weight: 300; /* Memberikan kesan ringan */
+    color: #ffdd57; /* Warna emas untuk memberi kesan hangat */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan lembut untuk efek kedalaman */
+    letter-spacing: 1px; /* Spasi antar huruf lebih renggang */
+    margin-top: 1rem;
+    transition: transform 0.3s ease; /* Efek transisi */
+}
+
+.dari-ardo:hover {
+    transform: scale(1.1); /* Efek memperbesar saat hover */
+    color: #ffd700; /* Mengubah warna saat hover */
+}
