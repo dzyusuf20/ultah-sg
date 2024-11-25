@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Elshadday Sinaga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <title>Selamat Ulang Tahun</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="hero">
+    <div class="parallax">
         <div class="content">
-            <h1>Selamat Ulang Tahun</h1>
-            <h2>Elshadday Sinaga</h2>
-            <p>Usia 20 Tahun</p>
+            <h1>Selamat Ulang Tahun Elshadday Sinaga</h1>
+            <p>Semoga hari-harimu penuh kebahagiaan dan keberuntungan</p>
+            <button id="playMusic">Klik Untuk Memulai</button>
         </div>
-    </section>
+    </div>
+    <div id="tarotCards">
+        <div class="card" id="card1">
+            <img src="card1.jpg" alt="Kartu 1">
+        </div>
+        <div class="card" id="card2">
+            <img src="card2.jpg" alt="Kartu 2">
+        </div>
+        <div class="card" id="card3">
+            <img src="card3.jpg" alt="Kartu 3">
+        </div>
+        <div class="card" id="card4">
+            <img src="card4.jpg" alt="Kartu 4">
+        </div>
+        <div class="card" id="card5">
+            <img src="card5.jpg" alt="Kartu 5">
+        </div>
+    </div>
 
-    <section class="message">
-        <div class="container">
-            <h3>Pesan Selamat Ulang Tahun</h3>
-            <p>Semoga selalu diberikan kebahagiaan dan kesuksesan di setiap langkah hidupmu!</p>
-        </div>
-    </section>
+    <audio id="birthdaySong" src="happy-birthday.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
