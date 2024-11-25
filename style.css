@@ -1,57 +1,70 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-  overflow-x: hidden;
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Hero Section */
-.hero {
-  background: url('your_image.jpg') no-repeat center center fixed;
+h1, h2 {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.highlight {
+  color: #f9d342;
+}
+
+/* Header Styles */
+.header {
+  background-image: url('https://source.unsplash.com/1920x1080/?birthday');
   background-size: cover;
+  background-position: center;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  color: white;
   text-align: center;
 }
 
-.hero h1, .hero h2, .hero p {
-  animation: fadeIn 2s ease-out;
+.header h1 {
+  font-size: 3rem;
 }
 
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 20px;
+.header p {
+  font-size: 1.25rem;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Kartu Tarot */
-.tarot-card {
-  background-color: #f4a261;
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
-  padding: 20px;
-  font-size: 1.5rem;
-  border-radius: 10px;
+}
+
+.tarot-cards h2 {
+  font-size: 2.5rem;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tarot-card {
+  background-color: #1f2937;
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
   cursor: pointer;
-  margin: 15px;
-  transition: transform 0.3s ease;
+  text-align: center;
+  width: 150px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .tarot-card:hover {
@@ -59,18 +72,10 @@ body {
 }
 
 /* Footer */
-footer {
-  background-color: #222;
-  padding: 20px;
-  color: #bbb;
-}
-
-/* Parallax Scroll */
-@keyframes parallaxEffect {
-  0% { background-position: center 0; }
-  100% { background-position: center 100px; }
-}
-
-#hero {
-  animation: parallaxEffect 5s infinite linear;
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
 }
