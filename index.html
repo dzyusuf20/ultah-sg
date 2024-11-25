@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Gradient background */
+            background: linear-gradient(to bottom, #FF8C00, #FFD700); /* Gradient background */
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -27,7 +27,7 @@
             text-align: center;
             color: white;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease-in-out;
@@ -83,62 +83,17 @@
             box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.6);
         }
 
-        /* Animasi Petasan */
-        .fireworks {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #FF4500, #FF6347);
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-            animation: fireworksAnimation 2s ease-out forwards;
-            transform: translate(-50%, -50%);
+        /* Animasi Teks */
+        .text-animate {
+            font-size: 28px;
+            color: white;
+            margin-top: 20px;
+            animation: fadeInText 3s ease-in-out;
         }
 
-        @keyframes fireworksAnimation {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(2); }
-            100% { opacity: 0; transform: scale(3); }
-        }
-
-        .love {
-            font-size: 80px;
-            color: red;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: loveAnimation 2s ease-out forwards;
-        }
-
-        @keyframes loveAnimation {
-            0% { opacity: 0; transform: translateY(-20px) scale(0.5); }
-            50% { opacity: 1; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(20px) scale(1.5); }
-        }
-
-        /* Animasi Pria Memberikan Bunga */
-        .gif-container {
-            position: relative;
-            bottom: 20px;
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .gif-container img {
-            width: 300px;
-            height: auto;
-            animation: giveFlower 3s ease-in-out forwards;
-        }
-
-        @keyframes giveFlower {
-            0% { opacity: 0; transform: translateX(100px); }
-            100% { opacity: 1; transform: translateX(0); }
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Musik */
@@ -159,40 +114,19 @@
         <h1>Selamat Ulang Tahun Elshadday Sinaga!</h1>
         <p>Semoga hari ini penuh kebahagiaan dan kesuksesan. Teruslah menjadi pribadi yang luar biasa!</p>
         <span class="heart">❤️</span>
-        <button class="button" onclick="showFireworks(); playMusic();">Salam Hangat</button>
+        <button class="button" onclick="playMusic();">Salam Hangat</button>
+
+        <!-- Animasi Teks -->
+        <div class="text-animate">Klik tombol untuk mendengarkan lagu dan melihat kejutan!</div>
     </div>
 
     <!-- Efek Petasan dan Love -->
     <script>
-        function showFireworks() {
-            // Menambahkan Efek Petasan
-            var fireworks = document.createElement('div');
-            fireworks.classList.add('fireworks');
-            document.body.appendChild(fireworks);
-
-            // Menambahkan Efek Love
-            var love = document.createElement('div');
-            love.classList.add('love');
-            love.innerHTML = '❤️';
-            document.body.appendChild(love);
-
-            // Hapus efek setelah 2 detik
-            setTimeout(function() {
-                fireworks.remove();
-                love.remove();
-            }, 2000);
-        }
-
         function playMusic() {
             var audio = document.getElementById('happyBirthday');
             audio.play();  // Memulai musik setelah tombol diklik
         }
     </script>
 
-    <!-- Animasi Pria Memberikan Bunga -->
-    <div class="gif-container">
-        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Pria Memberikan Bunga">
-    </div>
-    
 </body>
 </html>
