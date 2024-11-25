@@ -7,34 +7,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+<body class="bg-gradient-to-r from-purple-700 to-pink-600 text-white">
   <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
     <div class="text-center">
-      <h1 class="text-6xl md:text-8xl font-extrabold drop-shadow-lg">Selamat Ulang Tahun, <span class="text-yellow-400">Elshadday Sinaga</span> 🎉</h1>
-      <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari istimewa untuk seseorang yang spesial"</p>
-      <button id="mulai-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">Klik untuk Mulai</button>
+      <h1 class="text-5xl md:text-7xl font-extrabold drop-shadow-lg">Selamat Ulang Tahun, <span class="text-yellow-300">Elshadday Sinaga</span> 🎉</h1>
+      <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari spesial untuk seseorang yang luar biasa"</p>
+      <button id="mulai-btn" class="mt-10 bg-yellow-300 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">Klik Untuk Memulai</button>
     </div>
   </header>
 
-  <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-500">
+  <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-700">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold text-white mb-6">Kartu Tarot Kamu</h2>
-      <p class="text-lg text-white">Klik untuk membuka kartu dan temukan kata-kata spesial</p>
+      <h2 class="text-4xl font-extrabold text-white mb-6">Kartu Tarot Spesial</h2>
+      <p class="text-lg text-white">Klik setiap kartu untuk melihat pesan tersembunyi</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
-      <div id="card-1" class="tarot-card bg-red-500 hover:bg-red-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
-        <h3 class="text-2xl font-bold text-white">Kartu 1</h3>
+    <div class="flex justify-center flex-wrap gap-6 px-6">
+      <div id="card-1" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold">Kartu 1</h3>
       </div>
-      <div id="card-2" class="tarot-card bg-blue-500 hover:bg-blue-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
-        <h3 class="text-2xl font-bold text-white">Kartu 2</h3>
+      <div id="card-2" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold">Kartu 2</h3>
       </div>
-      <div id="card-3" class="tarot-card bg-green-500 hover:bg-green-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
-        <h3 class="text-2xl font-bold text-white">Kartu 3</h3>
+      <div id="card-3" class="tarot-card bg-yellow-300 text-gray-900 w-40 h-60 rounded-lg shadow-lg flex items-center justify-center cursor-pointer">
+        <h3 class="text-2xl font-bold">Kartu 3</h3>
       </div>
     </div>
 
-    <audio id="birthday-music" src="https://pixabay.com/sound-effects/birthday-card-73275/" preload="auto"></audio>
+    <audio id="birthday-music" src="https://cdn.pixabay.com/download/audio/2023/03/17/audio_524a02eec2.mp3?filename=birthday-card-73275.mp3" preload="auto"></audio>
   </section>
 
   <footer class="text-center py-8 bg-gray-800 text-white">
@@ -49,15 +49,15 @@
 
     const cards = document.querySelectorAll('.tarot-card');
     const messages = [
-      "Semangat dan jangan pernah menyerah!",
-      "Cinta akan datang di waktu yang tepat!",
-      "Kesuksesan menantimu, tetap berusaha!",
+      "Kamu adalah alasan hari ini istimewa.",
+      "Semoga tahun ini penuh kebahagiaan untukmu.",
+      "Balikan? Haha, pikirkan lagi ya! 😜"
     ];
 
     cards.forEach((card, index) => {
       card.addEventListener('click', () => {
-        card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
-        gsap.from(card, { duration: 1, scale: 0, ease: 'bounce' });
+        card.innerHTML = `<p class="text-center text-gray-900 px-2">${messages[index]}</p>`;
+        gsap.from(card, { duration: 1, rotateY: 180, ease: 'power2.inOut' });
       });
     });
   </script>
