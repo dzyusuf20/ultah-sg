@@ -113,7 +113,7 @@
             100% { opacity: 0; transform: scale(3); }
         }
 
-        /* Animasi Emotikon Love */
+        /* Animasi Love */
         .love {
             font-size: 80px;
             color: red;
@@ -129,6 +129,32 @@
             0% { opacity: 0; transform: translateY(-20px) scale(0.5); }
             50% { opacity: 1; transform: translateY(0) scale(1); }
             100% { opacity: 0; transform: translateY(20px) scale(1.5); }
+        }
+
+        /* Animasi Pria Memberikan Bunga */
+        .gif-container {
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            animation: moveUp 4s ease-out infinite;
+        }
+
+        @keyframes moveUp {
+            0% { bottom: -200px; }
+            50% { bottom: 30px; }
+            100% { bottom: 0; }
+        }
+
+        .gif-container img {
+            width: 150px;
+            height: auto;
+            animation: giveFlower 3s ease-in-out forwards;
+        }
+
+        @keyframes giveFlower {
+            0% { opacity: 0; transform: translateX(100px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
 
         /* Musik */
@@ -177,5 +203,11 @@
         var audio = document.getElementById('happyBirthday');
         audio.play();
     </script>
+
+    <!-- Animasi Pria Memberikan Bunga -->
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/1Qh9rfV6x4wXy/giphy.gif" alt="Pria Memberikan Bunga">
+    </div>
+    
 </body>
 </html>
