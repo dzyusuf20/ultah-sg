@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun!</title>
+    <title>Selamat Ulang Tahun Elshadday Sinaga!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -11,128 +11,142 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #ff7f50;
+            background: #ececec;
+            background-image: url('https://www.transparenttextures.com/patterns/black-linen-2.png');
+            background-size: cover;
             overflow: hidden;
-            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://www.transparenttextures.com/patterns/ligature.png');
-            background-size: cover;
-            animation: background-animation 5s ease-in-out infinite;
+            position: relative;
+            animation: background-anim 10s ease infinite;
         }
-        @keyframes background-animation {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
+
+        @keyframes background-anim {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
         }
+
         .container {
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
         }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         h1 {
-            font-size: 60px;
-            letter-spacing: 2px;
+            font-size: 50px;
+            font-weight: 600;
+            color: #FF6347;
             margin-bottom: 20px;
-            animation: slideIn 2s ease-out;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
         }
-        @keyframes slideIn {
-            0% { transform: translateY(-100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
+
         p {
             font-size: 24px;
-            margin-bottom: 20px;
-            animation: fadeIn 3s ease-in-out;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
+
         .heart {
-            font-size: 100px;
+            font-size: 80px;
             color: red;
-            animation: heartAnimation 1s infinite alternate;
+            animation: heartBeat 1s infinite alternate;
+            margin-bottom: 20px;
         }
-        @keyframes heartAnimation {
+
+        @keyframes heartBeat {
             0% { transform: scale(1); }
             100% { transform: scale(1.2); }
         }
+
         .button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #ff4c4c;
-            color: white;
+            padding: 20px 40px;
+            background-color: #FF6347;
             border: none;
             border-radius: 30px;
-            font-size: 20px;
-            cursor: pointer;
+            font-size: 22px;
+            color: white;
             text-decoration: none;
-            margin-top: 30px;
-            transition: background-color 0.3s;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
         }
+
         .button:hover {
-            background-color: #ff2b2b;
+            background-color: #FF4500;
+            box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.6);
         }
-        /* Animasi petasan */
+
+        /* Animasi Petasan */
         .fireworks {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, #ff5b5b, #ff7f50);
+            background: radial-gradient(circle, #FF4500, #FF6347);
             border-radius: 50%;
             opacity: 0;
             pointer-events: none;
+            animation: fireworksAnimation 2s ease-out forwards;
             transform: translate(-50%, -50%);
-            animation: fireworksAnimation 1.5s ease-out forwards;
         }
+
         @keyframes fireworksAnimation {
-            0% {
-                opacity: 1;
-                transform: scale(1) translate(-50%, -50%);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scale(2.5) translate(-50%, -50%);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(4) translate(-50%, -50%);
-            }
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(2); }
+            100% { opacity: 0; transform: scale(3); }
+        }
+
+        /* Musik */
+        audio {
+            display: none;
         }
     </style>
 </head>
 <body>
+
+    <!-- Musik Background -->
     <audio id="happyBirthday" autoplay loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <div class="container">
-        <h1>Selamat Ulang Tahun, [Nama Teman]!</h1>
-        <p>Semoga hari ini penuh kebahagiaan dan cinta. Teruslah menjadi pribadi yang luar biasa!</p>
+        <h1>Selamat Ulang Tahun Elshadday Sinaga!</h1>
+        <p>Semoga hari ini penuh kebahagiaan dan kesuksesan. Teruslah menjadi pribadi yang luar biasa!</p>
         <span class="heart">❤️</span>
-        <div>
-            <a href="#" class="button" onclick="showFireworks()">Klik untuk Kejutan!</a>
-        </div>
+        <button class="button" onclick="showFireworks()">Klik untuk Kejutan!</button>
     </div>
 
     <!-- Efek Petasan -->
     <script>
-        // Fungsi untuk menampilkan efek petasan saat tombol diklik
         function showFireworks() {
-            // Membuat elemen petasan baru
             var fireworks = document.createElement('div');
             fireworks.classList.add('fireworks');
             document.body.appendChild(fireworks);
 
-            // Menghapus efek setelah selesai
             setTimeout(function() {
                 fireworks.remove();
-            }, 1500);
+            }, 2000);
         }
 
-        // Mengatur agar musik dimulai secara otomatis
+        // Auto-play musik
         var audio = document.getElementById('happyBirthday');
         audio.play();
     </script>
