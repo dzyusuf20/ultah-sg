@@ -1,10 +1,9 @@
-/* Global Reset */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
@@ -13,7 +12,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: url('path_to_your_image.jpg') no-repeat center center fixed;
+  background: url('your_image.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -43,7 +42,7 @@ body {
   100% { opacity: 1; }
 }
 
-/* Kartu Tarot Styling */
+/* Kartu Tarot */
 .tarot-card {
   background-color: #f4a261;
   color: white;
